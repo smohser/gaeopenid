@@ -55,7 +55,7 @@ class OpenID(webapp.RequestHandler):
     <!--[if lt IE 9]>
         <script src="/static/js/IE9.js" type="text/javascript"></script><![endif]-->
 <style type="text/css">
-    html, body, h1, form, fieldset, legend, ol, li {
+    html, body, h1, h2, form, fieldset, legend, ol, li {
     margin: 0;
     padding: 0;
     }
@@ -63,14 +63,19 @@ class OpenID(webapp.RequestHandler):
     background: #ffffff;
     color: #111111;
     padding: 20px;
+    font-family: Calibri,sans-serif;
     }
+    .panel {text-align: center; padding: 3px;border-radius: 15px;background: #eeeeee; margin:150px 100px 0 100px;}
+    .formheader {text-align: left; margin-left:65px;font-size:125%; color: #555555;padding:0}
+    .formheader a{font-size: small;color:#888888;}
     #openid_url{background:url(/static/image/openid.png) no-repeat #FFF 2px; font-size: 16px; font-family: Calibri,sans-serif; padding-left:26px; width: 350px; height: 24px}
-    button {font-size: 16px; font-family: Calibri,sans-serif; margin:10px}
+    button {font-size: 16px; margin:10px}
 </style>
 </head>
 <body>
 <form id="provider" method="post" name="provider">
-<div style="text-align: center; border-radius: 15px;background: #eeeeee; margin:150px 80px 0 80px">
+<div class="panel">
+<div class="formheader">Sign in with OpenID <a href="http://openid.net/get-an-openid/what-is-openid/" target="_blank">What is OpenID</a></div>
 <input id="openid_url" name="openid_url" type="text" placeholder="Please Enter Your OpenID" required autofocus/>
 <button type="submit"/>Sign in</button>
 </div>
