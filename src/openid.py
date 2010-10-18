@@ -51,6 +51,7 @@ class OpenID(webapp.RequestHandler):
             self.response.out.write('''<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8" />
 <title>What's Your OpenID URL</title>
     <!--[if lt IE 9]>
         <script src="/static/js/IE9.js" type="text/javascript"></script><![endif]-->
@@ -77,7 +78,7 @@ class OpenID(webapp.RequestHandler):
 <div class="panel">
 <div class="formheader">Sign in with OpenID <a href="http://openid.net/get-an-openid/what-is-openid/" target="_blank">What is OpenID</a></div>
 <input id="openid_url" name="openid_url" type="text" placeholder="Please Enter Your OpenID" required autofocus/>
-<button type="submit"/>Sign in</button>
+<button type="submit">Sign in</button>
 </div>
 </form>
 </body>
