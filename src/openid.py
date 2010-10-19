@@ -77,7 +77,7 @@ class OpenID(webapp.RequestHandler):
 <form id="provider" method="post" name="provider">
 <div class="panel">
 <div class="formheader">Sign in with OpenID <a href="http://openid.net/get-an-openid/what-is-openid/" target="_blank">What is OpenID</a></div>
-<input id="openid_url" name="openid_url" type="text" placeholder="Please Enter Your OpenID" required autofocus/>
+<input id="openid_url" name="openid_url" type="text" placeholder="Please Enter Your OpenID" autocapitalize="off" autocorrect="off" required autofocus/>
 <button type="submit">Sign in</button>
 </div>
 </form>
