@@ -7,6 +7,7 @@ Created on Oct 17, 2010
 from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from Cookie import SimpleCookie
 
 ID_PROVIDERS = {
                'google' : 'http://google.com/accounts/o8/id',
@@ -32,6 +33,9 @@ class OpenID(webapp.RequestHandler):
         if (window.opener && !window.opener.closed) {
             window.opener.location.href = window.opener.location.href;
         }
+        if (window.parent) {
+            window.parent.location.href = window.parent.location.href;
+        }
         window.close();
         //]]>
     </script>
@@ -44,6 +48,10 @@ class OpenID(webapp.RequestHandler):
         if openid_url is None or len(openid_url.strip()) == 0:
             openid_url = ID_PROVIDERS.get(self.request.get('provider'), None)
         if openid_url is not None:
+            c = SimpleCookie()
+            c['idprovider'] = openid_url
+            c['idprovider']['Max-Age'] = '2592000'
+            self.response.headers.add_header('Set-Cookie', c.output(header=""))
             self.redirect(users.create_login_url(self.request.url, 
                             federated_identity = openid_url))
             return
