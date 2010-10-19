@@ -20,7 +20,7 @@
 	    		{% if not user %}
 	    		if ($.cookie('idprovider')){
 	    			$('<iframe />', {"name":"autologin","id":"autologin", "style":"display:none;",
-	    				"src":"/openid??openid_url="+$.cookie('idprovider')}).appendTo('body');
+	    				"src":"/openid?openid_url="+$.cookie('idprovider')}).appendTo('body');
 	    			}
 	    		{% endif %}
 	    		});
