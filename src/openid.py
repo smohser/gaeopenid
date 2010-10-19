@@ -44,7 +44,7 @@ class OpenID(webapp.RequestHandler):
         if openid_url is None or len(openid_url.strip()) == 0:
             openid_url = ID_PROVIDERS.get(self.request.get('provider'), None)
         if openid_url is not None:
-            self.redirect(users.create_login_url(self.request.uri, 
+            self.redirect(users.create_login_url(self.request.application_url, 
                             federated_identity = openid_url))
             return
         else:
