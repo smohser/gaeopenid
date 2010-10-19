@@ -30,7 +30,7 @@ class OpenID(webapp.RequestHandler):
     <script language="Javascript" type="text/javascript">
         //<![CDATA[
         if (window.opener && !window.opener.closed) {
-            window.opener.location.reload();
+            window.opener.location.href = window.opener.location.href;
         }
         window.close();
         //]]>
